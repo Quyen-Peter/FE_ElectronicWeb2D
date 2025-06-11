@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import '../css/Login.css'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -33,21 +33,21 @@ const Login = () => {
     }
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Đăng nhập</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
-          <input type="email" onChange={(e) => setEmail(e.target.value)} value={email}/>
+    <div className="login-container">
+            <form className="login-form" onSubmit={handleLogin}>
+                <h2>Đăng nhập</h2>
+                <div className="form-group">
+                    <label>Email:</label>
+                    <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                </div>
+                <div className="form-group">
+                    <label>Mật khẩu:</label>
+                    <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
+                </div>
+                <button type="submit">Đăng nhập</button>
+                <p className="message">{message}</p>
+            </form>
         </div>
-        <div>
-          <label>Mật khẩu:</label>
-          <input type="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
-        </div>
-        <button type="submit">Đăng nhập</button>
-      </form>
-      <p>{message}</p>
-    </div>
   );
 };
 
