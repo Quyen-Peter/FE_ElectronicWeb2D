@@ -63,8 +63,6 @@ const filteredUsers = users.filter(user =>
                     ? new Date(user.createat).toLocaleDateString("vi-VN")
                     : "Không rõ"}
                 </td>
-                <td>               
-                </td>
               </tr>
              
             ))}
