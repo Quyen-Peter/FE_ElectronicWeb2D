@@ -48,3 +48,10 @@
   font-size: 1.2rem;
   font-family: 'Poppins', sans-serif;
 }
+
+.sidebar-username {
+  font-size: 14px;
+  margin: 8px 0 16px 0;
+  color: #333;
+  font-weight: 500;
+}

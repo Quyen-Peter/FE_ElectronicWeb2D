@@ -1,20 +1,20 @@
 import '../css/HeaderUserManagement.css';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   searchName: string;
   setSearchName: (value: string) => void;
-  searchEmail: string;
-  setSearchEmail: (value: string) => void;
 }
 
-const HeaderUserManagement = ({searchName, setSearchName, searchEmail, setSearchEmail} : Props) =>{
+const HeaderUserManagement = ({searchName, setSearchName} : Props) =>{
+const navigate = useNavigate();
+
    return(
       <div className="backgrount-header">
         <div className="header">
-          <button className="new-user-btn">+ New User</button>
+          <button className="new-user-btn" onClick={()=> navigate('/Create-User')}>Thêm người dùng mới</button>
           <div className="search">
             <input type='text' placeholder="Search name" value={searchName} onChange={(e) => setSearchName(e.target.value)}></input>
-            <input type="text" placeholder="Search email" value={searchEmail} onChange={(e) => setSearchEmail(e.target.value)}/>
           </div>
         </div>
       </div>

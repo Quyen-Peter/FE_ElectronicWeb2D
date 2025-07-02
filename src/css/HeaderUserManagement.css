@@ -26,9 +26,10 @@
   cursor: pointer;
   font-size: 1rem;
   transition: background 0.3s;
-  width: 150px;
+  width: 200px;
   margin-top: 20px;
   margin-left: 20px;
+  font-size: 14px;
 }
 
 .new-user-btn:hover {
@@ -39,7 +40,7 @@
   display: flex;
   gap: 10px;
   margin-left: 20px;
-  margin-right: 50px;
+  margin-right: 100px;
 }
 
 .search input {

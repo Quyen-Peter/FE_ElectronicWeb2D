@@ -1,0 +1,47 @@
+.backgrount-header{
+  width: 98%;
+  height: 10vh;
+  background-color: #ffffff;
+  border-right: 1px solid #eee;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
+  position: relative;
+  height: 60px;
+}
+.bnt-update{
+  width: 100px;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.bnt-delete {
+  position: absolute;
+  right: 200px;  
+  top: 30%;
+  transform: translateY(-50%); 
+}
+
+.btn-back{
+  height: 32px;
+  width: 100px;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 50px;
+}

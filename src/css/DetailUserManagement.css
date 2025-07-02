@@ -1,0 +1,55 @@
+.user-detail-container {
+  margin-top: 130px;
+  background-color: #ffffff;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  max-width: 1100px;
+  margin-left: 19%;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.user-detail-row {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.label {
+  width: 120px;
+  font-weight: 500;
+  color: #444;
+}
+
+.value {
+  color: #000;
+}
+
+.input-edit {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+}
+.bnt-update {
+  background-color: #ff9800;
+  color: #fff;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.bnt-update.cancel {
+  background-color: #ccc;
+  color: #000;
+}
+

@@ -1,0 +1,30 @@
+.create-user-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-top: 120px;
+  margin-left: 19%;
+}
+.create-user-container h2 {
+  text-align: center;
+}
+
+.create-user-container form div {
+  margin-bottom: 12px;
+  width: 500px;
+  margin-left: 300px;
+}
+
+.create-user-container input,
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.create-user-container button {
+  width: 400px;
+  margin-left: 370px;
+}
