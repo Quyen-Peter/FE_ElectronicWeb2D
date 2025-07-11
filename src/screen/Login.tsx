@@ -26,7 +26,7 @@ const Login = () => {
     setMessage('');
      setLoading(true);
     try {
-      const res = await fetch('https://electricallearningapi2025.azurewebsites.net/api/Accounts/login', {
+      const res = await fetch('https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Accounts/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

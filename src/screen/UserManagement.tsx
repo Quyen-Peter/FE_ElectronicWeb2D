@@ -33,7 +33,7 @@ const UserManagement: React.FC = () => {
       return;
     }
 
-    const url = `https://electricallearningapi2025.azurewebsites.net/api/Accounts?searchTerm=${searchTerm}&pageIndex=${pageIndex}&pageSize=${pageSize}`;
+    const url = `https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Accounts?searchTerm=${searchTerm}&pageIndex=${pageIndex}&pageSize=${pageSize}`;
 
     try {
       const res = await fetch(url, {
@@ -60,7 +60,9 @@ const UserManagement: React.FC = () => {
     fetchUsers();
   }, [searchTerm, pageIndex]);
 
-
+  
+  
+  
 
   return (
     <div
