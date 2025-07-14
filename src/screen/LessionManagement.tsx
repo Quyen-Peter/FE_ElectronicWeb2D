@@ -1,31 +1,21 @@
-import { count } from "console";
-import Sidebar from "../component/Sidebar";
 import { useEffect, useState } from "react";
-import "../css/MaterialManagement.css";
-import HeaderMaterial from "../component/headerMaterial";
 import { Mosaic } from "react-loading-indicators";
-import "../css/Loading.css";
-import { useNavigate } from "react-router-dom";
+import Sidebar from "../component/Sidebar";
+import HeaderMaterial from "../component/headerMaterial";
+import { useParams } from "react-router-dom";
+import "../css/MaterialManagement.css";
 
-
-interface chapter {
-  id: number;
-  name: string;
-  gradeId: number;
-}
-
-const MaterialsManagement = () => {
+const LessionManagement = () => {
+  const { id } = useParams();
   const [isGrading, setIsGrading] = useState(false);
-  const [chapter, setChapter] = useState<chapter[]>([]);
+  const [lession, setLession] = useState<any[]>([]);
   const [idGrade, setIdGrade] = useState("1");
-  const navigator = useNavigate();
 
-  const fetchGrade = async (gradeId: number) => {
+  const fetchLessons = async () => {
     try {
-      setIsGrading(true);
       const token = localStorage.getItem("accessToken");
       const res = await fetch(
-        `https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Grade/${gradeId}`,
+        `https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Lesson/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,21 +26,25 @@ const MaterialsManagement = () => {
 
       if (res.ok) {
         const data = await res.json();
-        setChapter(data.value.chapters);
-        setIsGrading(false);
+        const raw = data.value;
+        const lessonList = Array.isArray(raw) ? raw : [raw];
+        setLession(lessonList);
       } else {
+        setLession([]);
       }
-    } catch (err) {
+    } catch (error) {
+      console.error("Lỗi fetch bài học:", error);
+      setLession([]);
     } finally {
     }
   };
 
   useEffect(() => {
-    fetchGrade(Number(idGrade));
-  }, [idGrade]);
+    if (id) {
+      fetchLessons();
+    }
+  }, []);
 
-
-  
   return (
     <div style={{ display: "flex" }}>
       <div style={{ position: "fixed" }}>
@@ -69,7 +63,7 @@ const MaterialsManagement = () => {
         >
           <HeaderMaterial
             onSetIsGrading={setIsGrading}
-            onFetchGrade={fetchGrade}
+            onFetchGrade={() => {}}
           />
         </div>
         {isGrading ? (
@@ -83,9 +77,9 @@ const MaterialsManagement = () => {
           </div>
         ) : (
           <div className="content-material">
-            {chapter.map((c) => (
-              <div key={c.id}>
-                <button className="chapter-item"  onClick={() => navigator(`Lession/${c.id}`)}>Chương: {c.name}</button>
+            {lession.map((l) => (
+              <div key={l.id}>
+                <button className="chapter-item">Bài: {l.title}</button>
                 {/* <p className="chapter-item">Chương: {c.name}</p> */}
               </div>
             ))}
@@ -97,4 +91,4 @@ const MaterialsManagement = () => {
   );
 };
 
-export default MaterialsManagement;
+export default LessionManagement;

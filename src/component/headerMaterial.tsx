@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/HeaderMaterial.css";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface grade {
   id: number;
@@ -16,7 +17,13 @@ const HeaderMaterial = ({ onSetIsGrading, onFetchGrade }: materialProps) => {
   const [pageSize] = useState(10);
   const [grades, setGrade] = useState<grade[]>([]);
   const [searchText, setSearchText] = useState("");
-  const [selectedGradeId, setSelectedGradeId] = useState<number | null>(1);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [selectedGradeId, setSelectedGradeId] = useState<number | null>(() => {
+    const stored = localStorage.getItem("selectedGradeId");
+    return stored ? parseInt(stored) : 1;
+  });
+
 
   const hanldGrade = async () => {
     try {
@@ -56,7 +63,15 @@ const HeaderMaterial = ({ onSetIsGrading, onFetchGrade }: materialProps) => {
               }`}
               onClick={() => {
                 setSelectedGradeId(g.id);
-                onFetchGrade(g.id);
+                localStorage.setItem("selectedGradeId", g.id.toString());
+                if (location.pathname.startsWith("/material/Lession")) {
+                  navigate("/material");
+                  setTimeout(() => {
+                    onFetchGrade(g.id);
+                  }, 50); 
+                } else {
+                  onFetchGrade(g.id);
+                }
               }}
             >
               Lớp {g.name}

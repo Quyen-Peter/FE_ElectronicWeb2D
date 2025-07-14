@@ -69,7 +69,7 @@ const Login = () => {
     <>
       {loading ? (
         <div className="loading">
-          <Mosaic color="#ff9800" size="medium" text="Đang đăng nhập..." textColor="#333" />
+          <Mosaic color="#ff9800" size="medium" text="Đang kiểm tra..." textColor="#333" />
         </div>
       ) : (
         <div className="login-container">

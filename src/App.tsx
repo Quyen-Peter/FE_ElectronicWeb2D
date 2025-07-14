@@ -7,7 +7,7 @@ import UserManagement from './screen/UserManagement';
 import MaterialsManagement from './screen/MaterialsManagement';
 import DetailUserManagement from './screen/DetailUserManagement';
 import CreateUser from './screen/CreateUser';
-
+import LessionManagement from './screen/LessionManagement';
 
 const App = () => {
    return (
@@ -19,6 +19,7 @@ const App = () => {
           <Route path="/material" element={<MaterialsManagement />} />
           <Route path="/Detail-User/:id" element={<DetailUserManagement />} />
           <Route path="/Create-User" element={<CreateUser />} />
+          <Route path="/material/Lession/:id" element={<LessionManagement />} />
         </Routes>
       </Router>
 
