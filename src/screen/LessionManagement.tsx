@@ -2,20 +2,20 @@ import { useEffect, useState } from "react";
 import { Mosaic } from "react-loading-indicators";
 import Sidebar from "../component/Sidebar";
 import HeaderMaterial from "../component/headerMaterial";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../css/MaterialManagement.css";
 
 const LessionManagement = () => {
-  const { id } = useParams();
+  const { chapterId } = useParams();
   const [isGrading, setIsGrading] = useState(false);
   const [lession, setLession] = useState<any[]>([]);
-  const [idGrade, setIdGrade] = useState("1");
+  const navigator = useNavigate();
 
   const fetchLessons = async () => {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await fetch(
-        `https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Lesson/${id}`,
+        `https://api.ocgi.space/api/Lesson/${chapterId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ const LessionManagement = () => {
   };
 
   useEffect(() => {
-    if (id) {
+    if (chapterId) {
       fetchLessons();
     }
   }, []);
@@ -79,7 +79,7 @@ const LessionManagement = () => {
           <div className="content-material">
             {lession.map((l) => (
               <div key={l.id}>
-                <button className="chapter-item">Bài: {l.title}</button>
+                <button className="chapter-item"  onClick={() => navigator(`exercises/${l.id}`)}>Bài: {l.title}</button>
                 {/* <p className="chapter-item">Chương: {c.name}</p> */}
               </div>
             ))}

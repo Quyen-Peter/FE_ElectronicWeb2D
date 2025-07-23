@@ -8,6 +8,8 @@ import MaterialsManagement from './screen/MaterialsManagement';
 import DetailUserManagement from './screen/DetailUserManagement';
 import CreateUser from './screen/CreateUser';
 import LessionManagement from './screen/LessionManagement';
+import Exercises from './screen/Exercises';
+
 
 const App = () => {
    return (
@@ -19,7 +21,8 @@ const App = () => {
           <Route path="/material" element={<MaterialsManagement />} />
           <Route path="/Detail-User/:id" element={<DetailUserManagement />} />
           <Route path="/Create-User" element={<CreateUser />} />
-          <Route path="/material/Lession/:id" element={<LessionManagement />} />
+          <Route path="/material/Lession/:chapterId" element={<LessionManagement />} />
+          <Route path="/material/Lession/:chapterId/exercises/:lessonId" element={<Exercises />} />
         </Routes>
       </Router>
 

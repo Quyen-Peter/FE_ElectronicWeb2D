@@ -5,71 +5,101 @@ body {
     padding: 0;
 }
 
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.login-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
+/* Ảnh nền full màn hình */
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Khung form đè lên */
+.overlay {
+  position: absolute;
+  top: 56%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* Form login */
 .login-form {
-    background: #fff;
-    padding: 2rem 3rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+  background: rgba(255, 255, 255, 0);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0);
+  width: 240%;
+  max-width: 430px;
+  height: 500px;
 }
 
+/* Các phần còn lại giữ nguyên */
 .login-form h2 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #555;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #000000;
 }
 
 .form-group input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+  width: 90%;
+  height: 53px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  margin-top: 51px;
+  margin-left: 10px;
+  font-size: 22px;
 }
 
 .form-group input:focus {
-    border-color: #ff9800;
-    outline: none;
+  border-color: none;
+  outline: none;
 }
 
-button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.button {
+  width: 96%;
+  padding: 0.75rem;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 75px;
+  margin-top: 36px;
+  margin-left: 10px;
 }
 
 button:hover {
-    background-color: #e67e00;
+  background-color: #e67e00;
 }
 
 .message {
-    margin-top: 1rem;
-    color: #d32f2f;
-    text-align: center;
+  margin-top: 1rem;
+  color: #d32f2f;
+  text-align: center;
 }

@@ -25,7 +25,7 @@ const CreateUser = () => {
 
     try {
       const res = await fetch(
-        "https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Accounts",
+        "https://api.ocgi.space/api/Accounts",
         {
           method: "POST",
           headers: {

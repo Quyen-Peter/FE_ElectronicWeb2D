@@ -30,7 +30,7 @@ const HeaderMaterial = ({ onSetIsGrading, onFetchGrade }: materialProps) => {
       onSetIsGrading(true);
       const token = localStorage.getItem("accessToken");
       const res = await fetch(
-        `https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Grade?searchTerm=${searchText}&pageIndex=${pageIndex}&pageSize=${pageSize}`,
+        `https://api.ocgi.space/api/Grade?searchTerm=${searchText}&pageIndex=${pageIndex}&pageSize=${pageSize}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

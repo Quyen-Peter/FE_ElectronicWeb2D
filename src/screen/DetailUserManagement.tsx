@@ -17,7 +17,7 @@ const DetailUser = () => {
   const fetchUser = async () => {
     const token = localStorage.getItem("accessToken");
     const res = await fetch(
-      `https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Accounts/${id}`,
+      `https://api.ocgi.space/api/Accounts/${id}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -46,7 +46,7 @@ const DetailUser = () => {
     const token = localStorage.getItem("accessToken");
     try {
       const res = await fetch(
-        `https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Accounts/${id}`,
+        `https://api.ocgi.space/api/Accounts/${id}`,
         {
           method: "PUT",
           headers: {
@@ -73,7 +73,7 @@ const DetailUser = () => {
   const handleDeleteClick = async () => {
     const token = localStorage.getItem("accessToken");
     try {
-      const res = await fetch(`https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Accounts/${id}`, {
+      const res = await fetch(`https://api.ocgi.space/api/Accounts/${id}`, {
         method: "Delete",
         headers: {
           Authorization: `Bearer ${token}`,

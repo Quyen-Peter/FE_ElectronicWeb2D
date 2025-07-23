@@ -1,0 +1,95 @@
+.create-box-wrapper {
+  display: flex;
+  gap: 60px;
+  margin-top: 60px;
+  margin-left: 247px;
+  flex-wrap: wrap;
+   background-color: #ffffff;
+   width: 120%;
+   margin-bottom: -40;
+}
+
+.create-box {
+    display: flex;
+  padding: 5px;
+  width: 420px;
+  margin-left: 90px;
+  margin-right: 50px;
+}
+
+
+.create-box h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  
+  padding-bottom: 6px;
+}
+
+.create-box .input-field {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.create-box .create-btn {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.create-box .create-btn:hover {
+  background-color: #3e8e41;
+}
+.disAndButtom{
+    margin-left: 50px;
+    margin-top: 60px;
+}
+.createExser .input-field{
+    width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.createExser{
+    margin-left: 100px;
+}
+
+.createExser .create-btn{
+background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.button-small {
+  width: 70px;
+  margin-left: 8px;
+  padding: 4px 6px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.3s;
+}
+
+.button-small:hover {
+  background-color: #e0e0e0;
+}

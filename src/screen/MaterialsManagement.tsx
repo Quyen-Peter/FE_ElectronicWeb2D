@@ -25,7 +25,7 @@ const MaterialsManagement = () => {
       setIsGrading(true);
       const token = localStorage.getItem("accessToken");
       const res = await fetch(
-        `https://electrical-learning-dqf3exbwf6b9dkcp.southeastasia-01.azurewebsites.net/api/Grade/${gradeId}`,
+        `https://api.ocgi.space/api/Grade/${gradeId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
