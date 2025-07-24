@@ -19,6 +19,8 @@ const Exercises = () => {
   const [expression, setExpression] = useState("");
   const [description, setDescription] = useState("");
   const [circuitModelId, setCircuitModelId] = useState(1);
+  const [editIndex, setEditIndex] = useState<number | null>(null);
+  const [editedTitle, setEditedTitle] = useState("");
 
   const fetchExercises = async () => {
     try {
@@ -104,10 +106,10 @@ const Exercises = () => {
         fetFormula();
         toast.success("Tạo bài thành công!");
       } else {
-        toast.success("Tạo bài thất bại!");
+        toast.error("Tạo bài thất bại!");
       }
     } catch (error) {
-      toast.success("Lỗi tạo bài tập!");
+      toast.error("Lỗi tạo bài tập!");
     }
   };
 
@@ -141,10 +143,10 @@ const Exercises = () => {
         fetFormula();
         toast.success("Thêm công thức thành công!");
       } else {
-        toast.success("Tạo công thức thất bại!");
+        toast.error("Tạo công thức thất bại!");
       }
     } catch (error) {
-      toast.success("Lỗi tạo công thức!");
+      toast.error("Lỗi tạo công thức!");
     }
   };
 
@@ -170,10 +172,10 @@ const Exercises = () => {
         fetFormula();
         toast.success("Xóa thành công!");
       } else {
-        toast.success("Không thể xóa!");
+        toast.error("Không thể xóa!");
       }
     } catch (error) {
-      toast.success("Đã xảy ra lỗi khi xóa công thức!");
+      toast.error("Đã xảy ra lỗi khi xóa công thức!");
     }
   };
 
@@ -199,10 +201,38 @@ const Exercises = () => {
         fetFormula();
         toast.success("Xóa bài tập thành công!");
       } else {
-        toast.success("Không thể xóa bài tập!");
+        toast.error("Không thể xóa bài tập!");
       }
     } catch (error) {
-      toast.success("Đã xảy ra lỗi khi xóa bài tập!");
+      toast.error("Đã xảy ra lỗi khi xóa bài tập!");
+    }
+  };
+
+  const handleUpdate = async (id: number) => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      const res = await fetch(`https://api.ocgi.space/api/Exercises/${id}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ title: editedTitle }),
+      });
+
+      if (res.ok) {
+        const updated = [...exercises];
+        updated[editIndex!] = { ...updated[editIndex!], title: editedTitle };
+        setExercises(updated);
+        setEditIndex(null);
+        fetchExercises();
+        fetFormula();
+        toast.success("cập nhật thành công!");
+      } else {
+        toast.error("cập nhật thất bại!");
+      }
+    } catch (err) {
+      toast.error("cập nhật thất bại!");
     }
   };
 
@@ -327,17 +357,67 @@ const Exercises = () => {
                   marginRight: "10px",
                 }}
               >
-                <a>
-                  Bài tập {index + 1}: {l.title}
-                </a>
-                <div style={{ display: "flex" }}>
-                  {/* <button className="button-small">cập nhật</button> */}
-                  <button
-                    className="button-small"
-                    onClick={() => deleteExercise(l.id)}
-                  >
-                    Xóa
-                  </button>
+                <div>
+                  {editIndex === index ? (
+                    <textarea
+                      value={editedTitle}
+                      onChange={(e) => setEditedTitle(e.target.value)}
+                      style={{
+                        padding: "8px",
+                        width: "870px",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                        fontSize: "16px",
+                        resize: "vertical", 
+                        minHeight: "60px",
+                        lineHeight: "1.4",
+                        whiteSpace: "pre-wrap",
+                        overflowWrap: "break-word",
+                        fontFamily: "inherit",
+                      }}
+                    />
+                  ) : (
+                    <a>
+                      Bài tập {index + 1}: {l.title}
+                    </a>
+                  )}
+                </div>
+
+                <div style={{ display: "flex", gap: "5px", paddingRight: "20px" }}>
+                  {editIndex === index ? (
+                    <>
+                      <button
+                        className="button-small"
+                        onClick={() => handleUpdate(l.id)}
+                      >
+                        Lưu
+                      </button>
+                      <button
+                        className="button-small"
+                        onClick={() => setEditIndex(null)}
+                      >
+                        Hủy
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        className="button-small"
+                        onClick={() => {
+                          setEditIndex(index);
+                          setEditedTitle(l.title);
+                        }}
+                      >
+                        Cập nhật
+                      </button>
+                      <button
+                        className="button-small"
+                        onClick={() => deleteExercise(l.id)}
+                      >
+                        Xóa
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
