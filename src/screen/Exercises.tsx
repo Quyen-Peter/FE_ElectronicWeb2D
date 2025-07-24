@@ -229,7 +229,7 @@ const Exercises = () => {
         </div>
 
         <div className="create-box-wrapper">
-          <div className="create-box">
+          {/* <div className="create-box">
             <div>
               <h3>Tạo công thức</h3>
               <input
@@ -260,12 +260,13 @@ const Exercises = () => {
                 Tạo công thức
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="createExser">
             <h3>Tạo bài tập</h3>
+
             <input
               type="text"
-              placeholder="Tiêu đề bài tập"
+              placeholder="Nội dung bài tập"
               value={newExerciseTitle}
               onChange={(e) => setNewExerciseTitle(e.target.value)}
               className="input-field"
