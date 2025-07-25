@@ -112,11 +112,10 @@ const CreateUser = () => {
               <label>Vai trò:</label>
               <select value={role} onChange={(e) => setRole(e.target.value)}>
                 <option value="Student">Student</option>
-                <option value="Teacher">Teacher</option>
                 <option value="Admin">Admin</option>
               </select>
             </div>
-            <button type="submit">Tạo người dùng</button>
+            <button type="submit" style={{height: "40px", borderRadius: "5px", backgroundColor: "#4CAF50", color: "white", fontSize: "17px"}}>Tạo người dùng</button>
           </form>
         </div>
       </div>
